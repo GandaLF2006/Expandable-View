@@ -35,7 +35,7 @@ extension ExpandableViewDelegate {
     func expandableView(_ sender: ExpandableView, willChangeTo state: ExpandableViewState) { }
 }
 
-/// You need to create UIView in your Storyboard and set it's class to `ExpandableView`.
+/// You need to create a View object in your Storyboard and set it's class to `ExpandableView`.
 ///
 /// Then create 2 UIView objects inside of it, create a height constraints for each and connect them as `firstView` and `secondView`.
 ///
