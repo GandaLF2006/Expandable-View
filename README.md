@@ -10,6 +10,6 @@ Add this file to your project.
 3. This class creates constraints for `firstView` and `secondView`. You should not add them.
 4. Done. You can tap your expandableView or use `expand()` and `collapse()` methods to change its state.
 
-#### If you don't want to have any warning inside of your Interface Builder, you can add all constraints you need and set them to remove at build time.*
+#### If you don't want to have any warning inside of your Interface Builder, you can add all constraints you need and set them to remove at build time.
 
 #### I will add support for easier initialization in the future.
