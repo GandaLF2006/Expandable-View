@@ -12,4 +12,7 @@ Done. You can tap your expandableView or use `expand()` and `collapse()` methods
 
 #### If you don't want to have any warning inside of your Interface Builder, you can add all constraints you need and set them to remove at build time.
 
-#### I will add support for easier initialization in the future.
+#### TO-DO:
+
+- Easier setup
+- @IBDesignable
