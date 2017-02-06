@@ -112,16 +112,16 @@ extension ExpandableViewDelegate {
     /// Set your `ExpandableViewDelegate` compliant object as a delegate to receive calls about change of this view's state.
     weak var delegate:ExpandableViewDelegate?
 
-    /// Check this property to know which state the view is in.
+    /// Check this property for view's state. Get only.
     ///
-    /// Get only. To change state, use expand() and collapse() methods.
+    /// To change state, use `expand()`, `collapse()` or `toggle()` methods.
     public private(set) var state:ExpandableViewState = .collapsed
 
     // MARK: - Customization
 
     /// Time of animation for change of state.
     ///
-    /// Measured in seconds. Default is 0.3.
+    /// Measured in seconds. Default is `0.3`.
     var animationTime:TimeInterval = 0.3
 
     /// Delay before animation.
@@ -132,19 +132,19 @@ extension ExpandableViewDelegate {
     /// The damping ratio for the spring animation as it approaches its quiescent state.
     /// To smoothly decelerate the animation without oscillation, use a value of 1. Employ a damping ratio closer to zero to increase oscillation.
     ///
-    /// Default is 0.
+    /// Default is `0`.
     var springDamping:CGFloat = 0
 
     /// The initial spring velocity. For smooth start to the animation, match this value to the view’s velocity as it was prior to attachment.
     ///
     /// A value of 1 corresponds to the total animation distance traversed in one second. For example, if the total animation distance is 200 points and you want the start of the animation to match a view velocity of 100 pt/s, use a value of 0.5.
     ///
-    /// Default is 0.
+    /// Default is `0`.
     var initialSpringVelocity:CGFloat = 0
 
-    /// A mask of options indicating how you want to perform the animations. 
+    /// A mask of options indicating how you want to perform the animations.
     ///
-    /// Default is linear (.curveLinear).
+    /// Default is linear (`.curveLinear`).
     var animationOptions:UIViewAnimationOptions = .curveLinear
 
     /// Set this to true if you want this view to ignore user's tap.
@@ -169,6 +169,19 @@ extension ExpandableViewDelegate {
     func collapse() {
         if state == .expanded {
             change(to: .collapsed)
+        }
+    }
+
+    /// Call this method to change the view's state.
+    ///
+    /// If `collapsed`, this will call `expand()`.
+    /// If `expanded`, this will call `collapse()`.
+    /// Ignored if `animating`.
+    func toggle() {
+        switch state {
+        case .collapsed: expand()
+        case .expanded: collapse()
+        default: break
         }
     }
 }
